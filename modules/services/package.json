@@ -1,0 +1,11 @@
+{
+  "name": "@epxoid/services",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "mongoose": "^5.11.14"
+  }
+}
