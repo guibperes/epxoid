@@ -1,11 +1,13 @@
 {
   "name": "@epxoid/services",
+  "private": true,
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "rimraf dist && tsc"
   },
   "dependencies": {
-    "mongoose": "^5.11.14"
+    "mongodb": "^3.6.3",
+    "typeorm": "^0.2.30"
   }
 }

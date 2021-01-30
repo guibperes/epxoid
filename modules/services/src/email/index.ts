@@ -1,2 +1,2 @@
-export { EmailDTO } from './dto';
-export { Email } from './entity';
+export { Email } from './Email';
+export { EmailRepository } from './EmailRepository';
