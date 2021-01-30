@@ -1,0 +1,15 @@
+{
+  "name": "@epxoid/api",
+  "private": true,
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "node dist/main.js",
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/main.ts",
+    "build": "rimraf dist && tsc"
+  },
+  "dependencies": {
+    "mongodb": "^3.6.3",
+    "typeorm": "^0.2.30"
+  }
+}

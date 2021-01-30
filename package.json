@@ -8,6 +8,9 @@
   "workspaces": [
     "./modules/*"
   ],
+  "scripts": {
+    "build": "scripts/build.sh"
+  },
   "homepage": "https://github.com/guibperes/epxoid#readme",
   "repository": {
     "type": "git",
