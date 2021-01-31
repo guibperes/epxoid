@@ -1,26 +1,20 @@
-import { createConnection } from 'typeorm';
+import { Email, EmailService, EmailRepository } from '@epxoid/services';
+import { Database, Container } from './config';
 
-import { Email, EmailRepository } from '@epxoid/services';
+const start = async () => {
+  const connection = Database.createConnection([Email]);
 
-createConnection({
-  type: 'mongodb',
-  host: 'localhost',
-  port: 27017,
-  database: 'epxoid',
-  synchronize: true,
-  logging: true,
-  entities: [Email],
-})
-  .then(async connection => {
-    const repository = connection.getCustomRepository(EmailRepository);
+  Container.register([
+    EmailService,
+    {
+      token: EmailRepository,
+      useFactory: () => connection.getCustomRepository(EmailRepository),
+    },
+  ]);
 
-    const emails = await repository.find();
-    console.log(emails);
+  await connection.connect();
 
-    // const email = new Email();
-    // email.body = 'test';
-    // email.subject = 'test';
-
-    // await repository.save(email);
-  })
-  .catch(error => console.log(error));
+  const service: EmailService = Container.resolve(EmailService);
+  console.log(await service.findAll());
+};
+start().catch(error => console.log(error));
