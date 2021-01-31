@@ -1,20 +1,6 @@
-import { Email, EmailService, EmailRepository } from '@epxoid/services';
-import { Database, Container } from './config';
+import { start, shutdown } from './server';
 
-const start = async () => {
-  const connection = Database.createConnection([Email]);
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
 
-  Container.register([
-    EmailService,
-    {
-      token: EmailRepository,
-      useFactory: () => connection.getCustomRepository(EmailRepository),
-    },
-  ]);
-
-  await connection.connect();
-
-  const service: EmailService = Container.resolve(EmailService);
-  console.log(await service.findAll());
-};
-start().catch(error => console.log(error));
+start();

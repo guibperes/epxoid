@@ -1,8 +1,10 @@
 import { ConnectionManager, Connection } from 'typeorm';
 
+import { Email } from '@epxoid/services';
+
 const manager = new ConnectionManager();
 
-const createConnection = (entities: Function[]): Connection =>
+const createConnection = (): Connection =>
   manager.create({
     type: 'mongodb',
     host: 'localhost',
@@ -10,7 +12,7 @@ const createConnection = (entities: Function[]): Connection =>
     database: 'epxoid',
     synchronize: true,
     logging: true,
-    entities,
+    entities: [Email],
     useUnifiedTopology: true,
   });
 

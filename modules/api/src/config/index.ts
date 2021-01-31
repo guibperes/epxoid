@@ -1,2 +1,2 @@
 export { Database } from './database';
-export { Container } from './container';
+export { container } from './container';
