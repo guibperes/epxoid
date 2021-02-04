@@ -8,8 +8,7 @@ const container = new Container({ defaultLifeTime: LifeTime.PerRequest });
 container.register([
   {
     token: EmailRepository,
-    useFactory: () =>
-      Database.getConnection().getCustomRepository(EmailRepository),
+    useFactory: () => Database.getRepository(EmailRepository),
   },
   {
     token: EmailService,

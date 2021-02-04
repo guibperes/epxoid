@@ -19,9 +19,7 @@ const start = async () => {
   try {
     logger.info('Server startup process started');
 
-    const connection = Database.createConnection();
-    await connection.connect();
-    logger.info('Connected on database');
+    await Database.connect();
 
     server.listen(5000, () => logger.info('Server is running on port 5000'));
   } catch (error) {
@@ -36,9 +34,7 @@ const shutdown = async () => {
   try {
     logger.info('Server shutdown process started');
 
-    const connection = Database.getConnection();
-    await connection.close();
-    logger.info('Disconnected on database');
+    await Database.disconnect();
 
     server.close();
     logger.info('Shutdown process finished');
