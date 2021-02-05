@@ -2,19 +2,17 @@ import { ConnectionManager, Connection, ObjectType } from 'typeorm';
 import { Email } from '@epxoid/services';
 
 import { logger } from '../libs';
+import { DotEnv } from './env';
 
 const manager = new ConnectionManager();
 
 const createConnection = (): Connection =>
   manager.create({
     type: 'mongodb',
-    host: 'localhost',
-    port: 27017,
-    database: 'epxoid',
-    synchronize: true,
-    logging: true,
-    entities: [Email],
+    url: DotEnv.MONGODB_URL,
+    synchronize: false,
     useUnifiedTopology: true,
+    entities: [Email],
   });
 
 const getConnection = () => manager.get();
