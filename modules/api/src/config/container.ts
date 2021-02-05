@@ -13,8 +13,8 @@ const register = () =>
     },
     {
       token: EmailService,
-      lifeTime: LifeTime.Persistent,
       useClass: EmailService,
+      lifeTime: LifeTime.Persistent,
     },
   ]);
 
