@@ -1,20 +1,21 @@
-import { Container, LifeTime } from 'container-ioc';
+import { Container as ContainerIOC, LifeTime } from 'container-ioc';
 
 import { EmailRepository, EmailService } from '@epxoid/services';
 import { Database } from './database';
 
-const container = new Container({ defaultLifeTime: LifeTime.PerRequest });
+const container = new ContainerIOC({ defaultLifeTime: LifeTime.PerRequest });
 
-container.register([
-  {
-    token: EmailRepository,
-    useFactory: () => Database.getRepository(EmailRepository),
-  },
-  {
-    token: EmailService,
-    lifeTime: LifeTime.Persistent,
-    useClass: EmailService,
-  },
-]);
+const register = () =>
+  container.register([
+    {
+      token: EmailRepository,
+      useFactory: () => Database.getRepository(EmailRepository),
+    },
+    {
+      token: EmailService,
+      lifeTime: LifeTime.Persistent,
+      useClass: EmailService,
+    },
+  ]);
 
-export { container };
+export const Container = { register };

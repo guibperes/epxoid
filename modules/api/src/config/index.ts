@@ -1,2 +1,3 @@
 export { Database } from './database';
-export { container } from './container';
+export { Container } from './container';
+export { DotEnv } from './env';
