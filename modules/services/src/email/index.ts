@@ -1,3 +1,3 @@
-export { Email } from './Email';
-export { EmailRepository } from './EmailRepository';
-export { EmailService } from './EmailService';
+export { Email } from './entity';
+export { EmailRepository } from './repository';
+export { EmailService } from './service';

@@ -1,7 +1,7 @@
 import { Injectable, Inject } from 'container-ioc';
 
-import { EmailRepository } from './EmailRepository';
-import { Email } from './Email';
+import { EmailRepository } from './repository';
+import { Email } from './entity';
 
 @Injectable()
 export class EmailService {
