@@ -1,9 +1,7 @@
-import dotenv from 'dotenv';
+import { DotEnv } from '@epxoid/libs';
 
-dotenv.config();
+DotEnv.config();
 
-const envToString = (env: string) => process.env[env] ?? '';
-
-export const DotEnv = {
-  MONGODB_URL: envToString('MONGODB_URL'),
+export const Env = {
+  MONGODB_URL: DotEnv.envToString('MONGODB_URL'),
 };

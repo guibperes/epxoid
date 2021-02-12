@@ -2,10 +2,10 @@ import http from 'http';
 import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
+import { logger, loggerMiddleware, Database } from '@epxoid/libs';
 
-import { logger, loggerMiddleware } from './libs';
+import { Env } from './config';
 import { routes } from './routes';
-import { Database } from './config';
 
 const app = express();
 const server = http.createServer(app);
@@ -19,6 +19,7 @@ const start = async () => {
   try {
     logger.info('Server startup process started');
 
+    Database.createConnection(Env.MONGODB_URL);
     await Database.connect();
 
     server.listen(5000, () => logger.info('Server is running on port 5000'));

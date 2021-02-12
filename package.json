@@ -9,7 +9,8 @@
     "./modules/*"
   ],
   "scripts": {
-    "build": "scripts/build.sh"
+    "build:common": "scripts/build_common.sh",
+    "build": "scripts/build_common.sh && scripts/build_services.sh"
   },
   "homepage": "https://github.com/guibperes/epxoid#readme",
   "repository": {

@@ -1,0 +1,19 @@
+{
+  "name": "@epxoid/libs",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express-pino-logger": "^6.0.0",
+    "mongodb": "^3.6.4",
+    "pino": "^6.11.1",
+    "typeorm": "^0.2.31"
+  },
+  "devDependencies": {
+    "@types/express-pino-logger": "^4.0.2",
+    "@types/pino": "^6.3.5"
+  }
+}

@@ -1,25 +1,24 @@
 import { ConnectionManager, Connection, ObjectType } from 'typeorm';
-import { Email } from '@epxoid/services';
 
-import { logger } from '../libs';
-import { DotEnv } from './env';
+import { logger } from '../logger';
+import { entities } from './entities';
 
 const manager = new ConnectionManager();
 
-const createConnection = (): Connection =>
+const createConnection = (url: string): Connection =>
   manager.create({
     type: 'mongodb',
-    url: DotEnv.MONGODB_URL,
     synchronize: false,
     useUnifiedTopology: true,
-    entities: [Email],
+    url,
+    entities,
   });
 
 const getConnection = () => manager.get();
 
 const connect = async () => {
   try {
-    const connection = createConnection();
+    const connection = getConnection();
     await connection.connect();
 
     logger.info('Connected on database');
@@ -48,4 +47,10 @@ const disconnect = async () => {
 const getRepository = <T>(entityType: ObjectType<T>) =>
   getConnection().getCustomRepository(entityType);
 
-export const Database = { connect, disconnect, getConnection, getRepository };
+export const Database = {
+  connect,
+  disconnect,
+  createConnection,
+  getConnection,
+  getRepository,
+};
