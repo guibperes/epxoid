@@ -7,7 +7,6 @@
     "build": "rimraf dist && tsc"
   },
   "dependencies": {
-    "container-ioc": "^1.7.19",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.30"
   }

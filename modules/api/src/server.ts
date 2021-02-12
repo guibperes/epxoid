@@ -5,12 +5,10 @@ import cors from 'cors';
 
 import { logger, loggerMiddleware } from './libs';
 import { routes } from './routes';
-import { Database, Container } from './config';
+import { Database } from './config';
 
 const app = express();
 const server = http.createServer(app);
-
-Container.register();
 
 app.use(express.json());
 app.use(cors());
