@@ -8,8 +8,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express-pino-logger": "^6.0.0",
-    "pino": "^6.11.1",
-    "typeorm": "^0.2.31"
+    "pino": "^6.11.1"
   },
   "devDependencies": {
     "@types/express-pino-logger": "^4.0.2",

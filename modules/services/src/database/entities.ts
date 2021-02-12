@@ -1,5 +1,6 @@
 import { EntitySchema } from 'typeorm';
-import { Email } from '@epxoid/services';
+
+import { Email } from '../email';
 
 const entities: string[] | Function[] | EntitySchema<any>[] = [Email];
 

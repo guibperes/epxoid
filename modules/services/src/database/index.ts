@@ -1,6 +1,6 @@
 import { ConnectionManager, Connection, ObjectType } from 'typeorm';
+import { logger } from '@epxoid/libs';
 
-import { logger } from '../logger';
 import { entities } from './entities';
 
 const manager = new ConnectionManager();

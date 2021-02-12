@@ -1,3 +1,4 @@
 import 'reflect-metadata';
 
-export { Email, EmailRepository, EmailService } from './email';
+export { Database } from './database';
+export { Email, EmailRepository, EmailService, EmailCreateDTO } from './email';

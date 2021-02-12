@@ -6,6 +6,8 @@
     "build": "rimraf dist && tsc"
   },
   "dependencies": {
+    "class-validator": "^0.13.1",
+    "mongodb": "^3.6.4",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.30"
   }

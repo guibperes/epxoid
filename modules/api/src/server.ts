@@ -2,7 +2,8 @@ import http from 'http';
 import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import { logger, loggerMiddleware, Database } from '@epxoid/libs';
+import { logger, loggerMiddleware } from '@epxoid/libs';
+import { Database } from '@epxoid/services';
 
 import { Env } from './config';
 import { routes } from './routes';

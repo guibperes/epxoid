@@ -1,12 +1,17 @@
 import { Request, Response } from 'express';
-import { EmailService } from '@epxoid/services';
+import { EmailService, EmailCreateDTO } from '@epxoid/services';
 
-export class EmailController {
-  constructor(private service: EmailService) {}
+const findAll = async (req: Request, res: Response) => {
+  const response = await EmailService.findAll();
 
-  public async findAll(req: Request, res: Response) {
-    const response = await this.service.findAll();
+  return res.json(response);
+};
 
-    return res.json(response);
-  }
-}
+const save = async (req: Request, res: Response) => {
+  const emailCreateDTO = EmailCreateDTO.of(req.body);
+  const response = await EmailService.save(emailCreateDTO);
+
+  return res.json(response);
+};
+
+export const EmailController = { findAll, save };
